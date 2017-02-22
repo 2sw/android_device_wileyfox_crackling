@@ -33,21 +33,21 @@ TARGET_BOOTANIMATION_SIZE := 640x362
 $(call inherit-product, vendor/omni/config/common.mk)
 
 # Inherit AOSP device configuration
-$(call inherit-product, device/google/seed/seed.mk)
+$(call inherit-product, device/wileyfox/crackling/crackling.mk)
 
 # Must define platform variant before including any common things
 TARGET_BOARD_PLATFORM_VARIANT := msm8916
 
 # Override AOSP build properties
-PRODUCT_NAME := omni_seed
-PRODUCT_DEVICE := seed
-PRODUCT_BRAND := google
-PRODUCT_MODEL := seed
-PRODUCT_MANUFACTURER := google
+PRODUCT_NAME := omni_crackling
+PRODUCT_DEVICE := crackling
+PRODUCT_BRAND := wileyfox
+PRODUCT_MODEL := crackling
+PRODUCT_MANUFACTURER := wileyfox
 
 PRODUCT_GMS_CLIENTID_BASE := android-google
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRODUCT_NAME=seed \
-    BUILD_FINGERPRINT=google/seed_l8150/seed:7.1.1/N4F26P/3587886:user/release-keys \
-    PRIVATE_BUILD_DESC="seed_l8150-user 7.1.1 N4F26P 3587886 release-keys"
+    PRODUCT_NAME=crackling \
+    BUILD_FINGERPRINT=wileyfox/crackling_l8150/crackling:7.1.1/N4F26P/3587886:user/release-keys \
+    PRIVATE_BUILD_DESC="crackling_l8150-user 7.1.1 N4F26P 3587886 release-keys"

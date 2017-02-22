@@ -17,9 +17,9 @@ FORCE_32_BIT := true
 
 -include device/qcom/msm8916-common/BoardConfigCommon.mk
 
-include device/google/seed/board/*.mk
+include device/wileyfox/crackling/board/*.mk
 
-TARGET_BOARD_INFO_FILE := device/google/seed/board-info.txt
+TARGET_BOARD_INFO_FILE := device/wileyfox/crackling/board-info.txt
 
 # inherit from the proprietary version
--include vendor/google/seed/BoardConfigVendor.mk
+-include vendor/wileyfox/crackling/BoardConfigVendor.mk

@@ -17,8 +17,8 @@
 
 #set -e
 
-export DEVICE=seed
-export VENDOR=google
+export DEVICE=crackling
+export VENDOR=wileyfox
 
 # Load extractutils and do some sanity checks
 MY_DIR="${BASH_SOURCE%/*}"
