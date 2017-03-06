@@ -28,3 +28,20 @@ $(shell mkdir -p $(TARGET_OUT)/etc/firmware/wlan/prima; \
 	    $(TARGET_OUT)/etc/firmware/wlan/prima/WCNSS_qcom_cfg.ini)
 
 endif
+
+##################################
+# Audio Policy Manager
+##################################
+include $(CLEAR_VARS)
+
+LOCAL_SHARED_LIBRARIES := \
+    libaudiopolicymanagerdefault
+
+LOCAL_C_INCLUDES := \
+    external/tinyalsa/include \
+    $(TOPDIR)frameworks/av/services/audiopolicy
+
+LOCAL_MODULE := libaudiopolicymanager
+LOCAL_MODULE_TAGS := optional
+
+include $(BUILD_SHARED_LIBRARY)
