@@ -13,3 +13,15 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.camera.cpp.duplication=false \
     persist.camera.hal.debug.mask=0
+
+# Disable the thumbnail encoding in order to reduce the power
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.camera.tn.disable=1
+
+# System property for PIP support
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.camera.pip.support=0
+
+# Disable all camera debug
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.camera.hal.debug.mask=0
