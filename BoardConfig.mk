@@ -16,6 +16,7 @@
 DEVICE_PATH := device/wileyfox/crackling
 
 include device/wileyfox/crackling/board/*.mk
+include device/wileyfox/crackling/ota/ota.mk
 
 TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_PATH)/include
 
