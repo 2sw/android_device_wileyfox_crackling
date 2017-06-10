@@ -220,7 +220,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    camera.msm8916
+    camera.msm8916 \
+	libmm-qcamera \
+	SnapdragonCamera
 
 PRODUCT_PROPERTY_OVERRIDES += \
     media.stagefright.legacyencoder=true \
@@ -269,7 +271,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.custom_ecc=1 \
     persist.radio.ecc_hard_1=112,911,110,122,119,120,000,118 \
     persist.radio.ecc_hard_count=1 \
-    rild.libpath=/system/vendor/lib/libril-qc-qmi-1.so \
+    rild.libpath=/system/vendor/lib64/libril-qc-qmi-1.so \
     ril.subscription.types=RUIM \
     persist.radio.rat_on=combine \
     ro.ril.multi_rat_capable=true
@@ -285,6 +287,11 @@ PRODUCT_PACKAGES += \
     libwcnss_qmi \
     wcnss_service
 
+# WiFi Display
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.debug.wfd.enable=1
+    persist.sys.wfd.virtual=0
+	
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/hostapd.accept:system/etc/hostapd/hostapd.accept \
     $(LOCAL_PATH)/configs/hostapd.conf:system/etc/hostapd/hostapd_default.conf \
@@ -294,6 +301,7 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:system/etc/wifi/WCNSS_qcom_cfg.ini \
+    $(LOCAL_PATH)/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
     $(LOCAL_PATH)/wifi/WCNSS_cfg.dat:system/etc/firmware/wlan/prima/WCNSS_cfg.dat \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_wlan_nv.bin:system/etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin
 
