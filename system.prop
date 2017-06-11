@@ -1,5 +1,5 @@
 # Device
-ro.product.device=wt88047
+ro.product.device=crackling
 
 # ActivityManager
 ro.config.max_starting_bg=8
@@ -118,3 +118,5 @@ net.tethering.noprovisioning=true
 
 # SIM settings
 ro.telephony.sim_unlocked=1
+
+ro.product.model.platform=1

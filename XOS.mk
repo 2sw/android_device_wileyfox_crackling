@@ -13,23 +13,27 @@
 # limitations under the License.
 
 # Inherit from those products. Most specific first.
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 # Inherit some common stuffs.
 $(call inherit-product, vendor/xos/config/common.mk)
 
-# Inherit from wt88047 device
-$(call inherit-product, device/wingtech/wt88047/device.mk)
+# Must define platform variant before including any common things
+TARGET_BOARD_PLATFORM_VARIANT := msm8916
+
+# Inherit from crackling device
+$(call inherit-product, device/wileyfox/crackling/device.mk)
 
 # Must define platform variant before including any common things
 TARGET_BOARD_PLATFORM_VARIANT := msm8916
 
 # Device identifier. This must come after all inclusions
-BOARD_VENDOR := wingtech
-PRODUCT_BRAND := Xiaomi
-PRODUCT_DEVICE := wt88047
-PRODUCT_NAME := XOS_wt88047
-PRODUCT_MANUFACTURER := Wingtech
-PRODUCT_MODEL := Redmi 2
+BOARD_VENDOR := wileyfox
+PRODUCT_BRAND := Wileyfox
+PRODUCT_DEVICE := crackling
+PRODUCT_NAME := XOS_crackling
+PRODUCT_MANUFACTURER := Wileyfox
+PRODUCT_MODEL := Wileyfox Swift
 
-PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
+PRODUCT_GMS_CLIENTID_BASE := android-wileyfox
