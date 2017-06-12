@@ -183,36 +183,31 @@ endif
 PRODUCT_PACKAGES += \
     power.msm8916
 
-# Ramdisk
-PRODUCT_PACKAGES += \
-    init.qcom.bt.sh
-
-PRODUCT_PACKAGES += \
-    init.qcom.rc \
-    init.qcom.power.rc \
-    init.qcom.usb.rc \
-    init.recovery.qcom.rc \
-    ueventd.qcom.rc
-
 # Init scripts
 PRODUCT_PACKAGES += \
-    fstab.qcom \
+    init.qcom.rc \
+    init.qcom.mem.sh \
+    init.qcom.power.rc \
+    init.qcom.ssr.rc \
+    init.recovery.qcom.rc \
+    ueventd.qcom.rc \
+	fstab.qcom \
     init.target.rc \
-    init.target.power.rc \
-    init.qcom.usb.rc \
-    memcheck
+	init.qcom.usb.rc \
+	init.qcom.bt.sh
 
-# Sensor HAL
+# Sensors
 PRODUCT_PACKAGES += \
-    calmodule.cfg \
-    libcalmodule_common \
+    accelcal \
+    AccCalibration \
+    sensord \
     sensors.msm8916
 
 # Permissions
 PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
     frameworks/native/data/etc/android.hardware.sensor.compass.xml:system/etc/permissions/android.hardware.sensor.compass.xml \
     frameworks/native/data/etc/android.hardware.sensor.gyroscope.xml:system/etc/permissions/android.hardware.sensor.gyroscope.xml \
+    frameworks/native/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
     frameworks/native/data/etc/android.hardware.sensor.light.xml:system/etc/permissions/android.hardware.sensor.light.xml \
     frameworks/native/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml \
     frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml
@@ -261,6 +256,9 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.data.target=dpm1 \
+    persist.radio.apm_sim_not_pwdn=1 \
+    ro.telephony.call_ring.multiple=false \
+    ro.use_data_netmgrd=true \
     persist.data.qmi.adb_logmask=0
 
 # RIL
@@ -275,12 +273,18 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.multisim.config=dsds \
     persist.radio.custom_ecc=1 \
-    persist.radio.ecc_hard_1=112,911,110,122,119,120,000,118 \
+    persist.radio.ecc_hard_1=998 \
     persist.radio.ecc_hard_count=1 \
     rild.libpath=/system/vendor/lib64/libril-qc-qmi-1.so \
-    ril.subscription.types=RUIM \
-    persist.radio.rat_on=combine \
-    ro.ril.multi_rat_capable=true
+    ro.telephony.default_network=9,9
+
+# RIL
+ifeq ($(QCPATH),)
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/data/netmgr_config.xml:system/etc/data/netmgr_config.xml \
+    $(LOCAL_PATH)/configs/data/qmi_config.xml:system/etc/data/qmi_config.xml \
+    $(LOCAL_PATH)/configs/data/dsi_config.xml:system/etc/data/dsi_config.xml
+endif
 
 # Wifi
 PRODUCT_PACKAGES += \
@@ -320,3 +324,30 @@ DEFAULT_ROOT_METHOD := rootless
 # For android_filesystem_config.h
 PRODUCT_PACKAGES += \
     fs_config_files
+
+# USB ID
+ADDITIONAL_DEFAULT_PROPERTIES += \
+    ro.usb.id.midi=90BA \
+    ro.usb.id.midi_adb=90BB \
+    ro.usb.id.mtp=2281 \
+    ro.usb.id.mtp_adb=2282 \
+    ro.usb.id.ptp=2284 \
+    ro.usb.id.ptp_adb=2283 \
+    ro.usb.id.ums=2286 \
+    ro.usb.id.ums_adb=2285 \
+    ro.usb.vid=2970
+	
+# Bluetooth
+PRODUCT_PROPERTY_OVERRIDES += \
+    qcom.bluetooth.soc=smd \
+    ro.bluetooth.dun=true \
+    ro.bluetooth.hfp.ver=1.7 \
+    ro.bluetooth.sap=true \
+    ro.qualcomm.bluetooth.ftp=true \
+    ro.qualcomm.bluetooth.hfp=true \
+    ro.qualcomm.bluetooth.hsp=true \
+    ro.qualcomm.bluetooth.map=true \
+    ro.qualcomm.bluetooth.nap=true \
+    ro.qualcomm.bluetooth.opp=true \
+    ro.qualcomm.bluetooth.pbap=true \
+    ro.qualcomm.bt.hci_transport=smd
