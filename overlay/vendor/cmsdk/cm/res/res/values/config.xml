@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2015 The CyanogenMod Project
+     Copyright (C) 2016 The CyanogenMod Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,24 +15,17 @@
      limitations under the License.
 -->
 <resources>
-
-    <!-- Performance profiles -->
-    <string name="config_perf_profile_prop">powerhal</string>
-    <string name="config_perf_profile_default_entry">1</string>
-
-    <!-- Default wi-fi hotspot ssid -->
-    <string name="config_wifiHotSpotSsid" translatable="false">Swift</string>
-    <!-- Default wi-fi direct name -->
-    <string name="config_wifiDirectName" translatable="false">Swift</string>
     <!-- All the capabilities of the LEDs on this device, stored as a bit field.
          This integer should equal the sum of the corresponding value for each
          of the following capabilities present:
+
          LIGHTS_RGB_NOTIFICATION_LED = 1
          LIGHTS_RGB_BATTERY_LED = 2
          LIGHTS_MULTIPLE_NOTIFICATION_LED = 4
          LIGHTS_PULSATING_LED = 8
          LIGHTS_SEGMENTED_BATTERY_LED = 16
          LIGHTS_ADJUSTABLE_NOTIFICATION_LED_BRIGHTNESS = 32
+
          For example, a device support pulsating, RGB notification and
          battery LEDs would set this config to 11. -->
     <integer name="config_deviceLightCapabilities" translatable="false">3</integer>

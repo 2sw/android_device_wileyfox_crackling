@@ -1,4 +1,4 @@
-# Venus (media) firmware
+# Signed Venus (media) firmware
 etc/firmware/venus.b00
 etc/firmware/venus.b01
 etc/firmware/venus.b02
