@@ -17,6 +17,8 @@ include device/cyanogen/msm8916-common/BoardConfigCommon.mk
 
 include device/wileyfox/crackling/board/*.mk
 
+BOARD_GLOBAL_CFLAGS += -DBATTERY_REAL_INFO
+
 TARGET_BOARD_INFO_FILE := device/wileyfox/crackling/board-info.txt
 
 # inherit from proprietary files

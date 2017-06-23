@@ -27,4 +27,4 @@ PRODUCT_NAME := full_crackling
 PRODUCT_BRAND := wileyfox
 PRODUCT_MODEL := CRACKLING
 PRODUCT_MANUFACTURER := wileyfox
-
+TARGET_VENDOR := Wileyfox

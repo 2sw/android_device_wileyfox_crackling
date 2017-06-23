@@ -28,23 +28,33 @@
     <bool name="config_automatic_brightness_available">true</bool>
 
     <integer-array name="config_autoBrightnessLevels">
-        <item>10</item>
-        <item>30</item>
-        <item>60</item>
+        <item>5</item>
+        <item>25</item>
+        <item>50</item>
         <item>100</item>
-        <item>150</item>
-        <item>210</item>
-        <item>255</item>
+        <item>200</item>
+        <item>300</item>
+        <item>500</item>
+        <item>750</item>
+        <item>1000</item>
+        <item>1500</item>
+        <item>2000</item>
+        <item>10000</item>
     </integer-array>
 
     <integer-array name="config_autoBrightnessLcdBacklightValues">
+        <item>7</item>
         <item>10</item>
-        <item>20</item>
-        <item>40</item>
-        <item>70</item>
-        <item>110</item>
-        <item>160</item>
-        <item>200</item>
+        <item>16</item>
+        <item>29</item>
+        <item>48</item>
+        <item>80</item>
+        <item>126</item>
+        <item>181</item>
+        <item>211</item>
+        <item>232</item>
+        <item>255</item>
+        <item>255</item>
         <item>255</item>
     </integer-array>
 
@@ -98,4 +108,13 @@
         <item>"/data/dalvik-cache/arm64/system@framework@boot.oat"</item>
         <item>"/data/dalvik-cache/arm64/system@framework@services.jar@classes.dex"</item>
    </string-array>
+	
+   <!-- Our modem doesn't support this query yet -->
+   <string name="config_radio_access_family">GPRS|EDGE|UMTS|HSDPA|HSUPA|HSPA|LTE|HSPAP|GSM|TD_SCDMA|WCDMA|LTE_CA</string>
+	
+   <!-- Configuration to support SIM contact batch operation.-->
+   <bool name="config_sim_phonebook_batch_operation">false</bool>
+
+   <!-- enabling WifiDisplay(Miracast Source)-->
+   <bool name="config_enableWifiDisplay">true</bool>
 </resources>
